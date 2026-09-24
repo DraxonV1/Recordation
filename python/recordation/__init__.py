@@ -1,7 +1,7 @@
 """Recordation - Visual Automation Builder.
 
-Record browser flows in Lemur/Kiwi on Android & Desktop Chromium,
-and export directly to TrueDriver or standalone Chrome Extensions.
+Record your browser actions and export them directly to executable browser
+automation (Python TrueDriver or standalone Chrome Extensions).
 """
 
 from recordation.models import Recording, StepModel, TargetModel, SelectorsModel

@@ -3,19 +3,17 @@
 [![Author](https://img.shields.io/badge/Author-DraxonV1-8a2be2)](https://github.com/DraxonV1)
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://python.org)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-brightgreen)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Mobile Support](https://img.shields.io/badge/Android-Kiwi%20%7C%20Lemur-orange)](https://github.com/DraxonV1/recordation)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Visual Browser Automation Builder** created by **DraxonV1** for **Kiwi Browser** and **Lemur Browser** on Android, as well as desktop Chromium browsers.
+> **A browser extension that records your actions to export them to executable browser automation (Python / Extension)**. Created by **DraxonV1**.
 
-Record exact user interactions on your mobile or desktop browser into standardized `.rec` files, then export them directly into **TrueDriver Python scripts** (with automatic system Chrome detection) or **standalone Chrome extensions** that replay the automation anywhere.
+Record exact user interactions on any Chromium browser (mobile or desktop) into standardized `.rec` files, then export them directly into **TrueDriver Python scripts** (with automatic system Chrome detection) or **standalone Chrome extensions** that replay the automation anywhere.
 
 ---
 
 ## ✨ Features
 
-- **📱 Touchscreen & Mobile Ready:** Designed specifically for Android mobile browsers (Kiwi and Lemur).
-- **🕹️ In-Page Floating HUD:** Draggable on-screen widget with step counter, pulse recording indicator, pause/resume, and instant `.rec` download.
+- **🕹️ In-Page Floating HUD:** Draggable on-screen widget with step counter, pulse recording indicator, pause/resume, and one-tap `.rec` download.
 - **🎯 Multi-Strategy Selector Engine:** Captures stable element selectors:
   - Semantic form attributes (`name="email"`, `name="password"`)
   - Accessibility labels (`aria-label`)
@@ -24,7 +22,7 @@ Record exact user interactions on your mobile or desktop browser into standardiz
   - Unique hierarchical CSS paths and XPaths
 - **⚡ Multiple Export Targets:**
   - **TrueDriver (`export-py`):** Undetectable CDP automation with automatic system Google Chrome binary discovery (`find_system_chrome()`).
-  - **Standalone Extension (`export-ext`):** Unpacked Chrome Extension you can load back into Kiwi, Lemur, or Desktop Chrome to replay the automation.
+  - **Standalone Extension (`export-ext`):** Unpacked Chrome Extension you can load into any browser to replay the automation.
   - **Playwright (`export-playwright`):** Production-ready Playwright sync or async scripts.
 - **🧹 Noise Optimizer (`optimize`):** Merges rapid typing steps, cleans accidental double-clicks, and standardizes pauses.
 
@@ -39,9 +37,9 @@ recordation/
 │   ├── background.js           # State broker & tab navigation listener
 │   ├── content/
 │   │   ├── selector-generator.js # Multi-strategy selector builder
-│   │   ├── floating-hud.js     # Draggable on-screen mobile HUD
+│   │   ├── floating-hud.js     # Draggable on-screen HUD widget
 │   │   └── recorder.js         # Event capturer (click, input, select, keydown, submit)
-│   ├── popup/                  # Touch-friendly popup controller
+│   ├── popup/                  # Popup controller & step viewer
 │   └── icons/                  # High-DPI extension icons
 ├── python/
 │   └── recordation/
@@ -54,30 +52,29 @@ recordation/
 │           └── playwright_exporter.py # Playwright sync/async generator
 ├── examples/                   # Sample recorded flows
 ├── pyproject.toml              # Packaging & CLI entry point
-└── recordation-extension.zip   # Ready-to-install mobile extension zip
+└── recordation-extension.zip   # Ready-to-install extension zip
 ```
 
 ---
 
 ## 🚀 Quickstart
 
-### 1. Install Extension on Android (Kiwi or Lemur Browser)
+### 1. Install Extension
 
-1. Download [`recordation-extension.zip`](recordation-extension.zip) to your device (or clone this repository).
-2. Open **Kiwi Browser** or **Lemur Browser**.
-3. Tap the three-dot menu `⋮` -> **Extensions**.
-4. Enable **Developer Mode** (top-right toggle).
-5. Tap **+(from .zip / .crx / folder)** and select `recordation-extension.zip` (or select the `extension/` folder).
-6. **Recordation** is now installed and ready in your browser toolbar!
+1. Download [`recordation-extension.zip`](recordation-extension.zip) (or clone this repository).
+2. Open your Chromium browser's **Extensions** manager (`chrome://extensions`).
+3. Enable **Developer Mode**.
+4. Click **Load unpacked** (or select the ZIP in extension-supported mobile browsers) and choose the `extension/` directory.
+5. **Recordation** is now ready in your browser toolbar!
 
 ### 2. Record an Automation Flow
 
-1. Open any target website (e.g. `https://discord.com/register`).
-2. Tap the **Recordation** icon from your browser's menu.
-3. Tap **Start Recording**:
-   - The popup closes automatically and returns focus to your active tab.
+1. Navigate to the website you want to automate.
+2. Click the **Recordation** extension icon.
+3. Click **Start Recording**:
+   - The popup closes and returns focus to your active tab.
    - A floating **HUD widget** appears on screen showing recording status and live step count.
-   - Drag the HUD anywhere on screen so it doesn't obstruct form elements.
+   - Drag the HUD anywhere on screen so it doesn't obstruct elements.
 4. Perform your exact actions:
    - Click buttons, tabs, links.
    - Type in text fields (passwords, usernames, search queries).
@@ -123,15 +120,14 @@ python automation.py
 ```
 
 ### Export to Standalone Replay Extension
-Generates an unpacked Chrome Extension ready to load into Kiwi, Lemur, or Desktop Chrome:
+Generates an unpacked Chrome Extension ready to load into any Chromium browser:
 ```bash
 recordation export-ext my_flow.rec -o ./my_runner_extension
 ```
 
-To run in Kiwi/Lemur:
-1. Transfer `./my_runner_extension` to your device.
-2. Go to **Extensions** -> **Load Unpacked**.
-3. Open target site, tap the runner extension, and click **Run Automation**.
+To run the exported extension:
+1. Load `./my_runner_extension` via **Extensions** -> **Load Unpacked**.
+2. Open the target website, click the runner extension, and click **Run Automation**.
 
 ### Export to Playwright
 ```bash

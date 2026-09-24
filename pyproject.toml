@@ -4,12 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "recordation"
-version = "1.0.0"
+description = "A browser extension that records your actions to export them to executable browser automation (Python / Extension)"
 authors = [{ name = "DraxonV1" }]
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.9"
-keywords = ["automation", "browser", "recorder", "truedriver", "kiwi", "lemur", "playwright", "chrome-extension"]
+keywords = ["automation", "browser", "recorder", "truedriver", "playwright", "chrome-extension"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",

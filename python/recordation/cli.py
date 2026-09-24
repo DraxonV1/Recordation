@@ -25,8 +25,8 @@ console = Console()
 def cli():
     """Recordation - Visual Automation Builder.
 
-    Record browser flows in Lemur/Kiwi on Android & Desktop Chrome,
-    and export directly to TrueDriver (system Chrome) or standalone Chrome Extensions.
+    A browser extension that records your actions to export them to executable
+    browser automation (Python TrueDriver or standalone Chrome Extensions).
     """
     pass
 
