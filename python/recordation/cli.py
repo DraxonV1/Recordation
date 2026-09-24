@@ -19,7 +19,7 @@ from recordation.exporters.playwright_exporter import PlaywrightExporter
 
 console = Console()
 
-@click.version_option(version="1.0.1", prog_name="recordation")
+@click.version_option(version="1.0.2", prog_name="recordation")
 @click.group()
 def cli():
     """Recordation - Visual Automation Builder.

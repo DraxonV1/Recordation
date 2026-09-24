@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.10', '3.11', '3.12']
 
     steps:
       - name: Checkout code
@@ -75,15 +75,26 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish to PyPI (Token)
-        if: ${{ secrets.PYPI_API_TOKEN != '' }}
+      - name: Detect PyPI Auth Mode
+        id: pypi-auth
+        env:
+          TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        run: |
+          if [ -n "$TOKEN" ]; then
+            echo "mode=token" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=oidc" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to PyPI (API Token)
+        if: steps.pypi-auth.outputs.mode == 'token'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
           skip-existing: true
 
-      - name: Publish to PyPI (OIDC)
-        if: ${{ secrets.PYPI_API_TOKEN == '' }}
+      - name: Publish to PyPI (OIDC Trusted Publishing)
+        if: steps.pypi-auth.outputs.mode == 'oidc'
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           skip-existing: true

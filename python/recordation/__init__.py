@@ -10,7 +10,7 @@ from recordation.exporters.truedriver_exporter import TruedriverExporter
 from recordation.exporters.extension_exporter import ExtensionExporter
 from recordation.exporters.playwright_exporter import PlaywrightExporter
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __all__ = [
     "Recording",
     "StepModel",
