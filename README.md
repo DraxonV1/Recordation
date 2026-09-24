@@ -1,9 +1,10 @@
 # Recordation
 
-[![Author](https://img.shields.io/badge/Author-DraxonV1-8a2be2)](https://github.com/DraxonV1)
-[![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://python.org)
+[![PyPI Version](https://img.shields.io/pypi/v/recordation.svg)](https://pypi.org/project/recordation/)
+[![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://python.org)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-brightgreen)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Author](https://img.shields.io/badge/Author-DraxonV1-8a2be2)](https://github.com/DraxonV1)
 
 A browser extension that records user interactions and exports them to executable browser automation (Python / Chrome Extension). Created by **DraxonV1**.
 
@@ -89,6 +90,20 @@ recordation/
 ## CLI Reference
 
 ### Installation
+
+Install from PyPI:
+
+```bash
+pip install recordation
+```
+
+With optional Playwright support:
+
+```bash
+pip install "recordation[playwright]"
+```
+
+Or install latest from source:
 
 ```bash
 git clone https://github.com/DraxonV1/Recordation.git
