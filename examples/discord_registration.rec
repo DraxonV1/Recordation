@@ -1,0 +1,539 @@
+{
+  "version": "1.0.0",
+  "format": "recordation.rec",
+  "metadata": {
+    "title": "Flow on Extensions",
+    "description": "",
+    "createdAt": "2026-09-24T08:52:57.056Z",
+    "updatedAt": "2026-09-24T08:56:47.294452+00:00",
+    "userAgent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Mobile Safari/537.36",
+    "viewport": {
+      "width": 412,
+      "height": 915
+    },
+    "device": "Android Mobile",
+    "startUrl": "chrome://extensions/",
+    "durationMs": 90124
+  },
+  "steps": [
+    {
+      "id": "step_1",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240000959,
+      "delayMs": 23903,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_10",
+          "xpath": "//*[@id=\"uid_10\"]",
+          "id": "uid_10",
+          "name": "email",
+          "ariaLabel": "Email"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 151.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "description": "Click #uid_10"
+    },
+    {
+      "id": "step_2",
+      "type": "input",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240011829,
+      "delayMs": 1706,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_10",
+          "xpath": "//*[@id=\"uid_10\"]",
+          "id": "uid_10",
+          "name": "email",
+          "ariaLabel": "Email"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 151.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "value": "draxongoat10@draxono.xyz",
+      "description": "Type \"draxongoat10@draxono.xyz\" into INPUT",
+      "rule": {
+        "field_name": "EMAILS",
+        "source_type": "file",
+        "file_path": "EMAIL.TXT",
+        "mode": "sequential",
+        "description": "Sequential lines from EMAIL.TXT"
+      }
+    },
+    {
+      "id": "step_3",
+      "type": "change",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240012446,
+      "delayMs": 617,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_10",
+          "xpath": "//*[@id=\"uid_10\"]",
+          "id": "uid_10",
+          "name": "email",
+          "ariaLabel": "Email"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 151.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "value": "draxongoat10@draxono.xyz",
+      "description": "Change value to \"draxongoat10@draxono.xyz\" on #uid_10"
+    },
+    {
+      "id": "step_4",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240012553,
+      "delayMs": 107,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_11",
+          "xpath": "//*[@id=\"uid_11\"]",
+          "id": "uid_11",
+          "name": "global_name",
+          "ariaLabel": "Display Name"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 239.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "description": "Click #uid_11"
+    },
+    {
+      "id": "step_5",
+      "type": "input",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240016060,
+      "delayMs": 1308,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_11",
+          "xpath": "//*[@id=\"uid_11\"]",
+          "id": "uid_11",
+          "name": "global_name",
+          "ariaLabel": "Display Name"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 239.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "value": "Draxonogoat",
+      "description": "Type \"Draxonogoat\" into INPUT",
+      "rule": {
+        "field_name": "Display Name",
+        "source_type": "python_expr",
+        "mode": "sequential",
+        "expression": "f'User_{random.randint(1000, 9999)}'",
+        "description": "Python expression: f'User_{random.randint(1000, 9999)}'"
+      }
+    },
+    {
+      "id": "step_6",
+      "type": "change",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240016929,
+      "delayMs": 869,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_11",
+          "xpath": "//*[@id=\"uid_11\"]",
+          "id": "uid_11",
+          "name": "global_name",
+          "ariaLabel": "Display Name"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 239.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "value": "Draxonogoat",
+      "description": "Change value to \"Draxonogoat\" on #uid_11"
+    },
+    {
+      "id": "step_7",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240017033,
+      "delayMs": 104,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_12",
+          "xpath": "//*[@id=\"uid_12\"]",
+          "id": "uid_12",
+          "name": "username",
+          "ariaLabel": "Username"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 371.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "description": "Click #uid_12"
+    },
+    {
+      "id": "step_8",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240018418,
+      "delayMs": 1385,
+      "target": {
+        "tag": "A",
+        "text": "draxonogoat",
+        "selectors": {
+          "css": "a[role=\"link\"]",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form/div/div[4]/div[2]/div/div/a",
+          "role": "link",
+          "text": "draxonogoat"
+        },
+        "bounds": {
+          "x": 141.0,
+          "y": 374.0,
+          "width": 74.0,
+          "height": 19.0
+        }
+      },
+      "description": "Click \"draxonogoat\" (A)"
+    },
+    {
+      "id": "step_9",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240020118,
+      "delayMs": 1700,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_13",
+          "xpath": "//*[@id=\"uid_13\"]",
+          "id": "uid_13",
+          "name": "password",
+          "ariaLabel": "Password"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 441.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "description": "Click #uid_13"
+    },
+    {
+      "id": "step_10",
+      "type": "input",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240023821,
+      "delayMs": 1052,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_13",
+          "xpath": "//*[@id=\"uid_13\"]",
+          "id": "uid_13",
+          "name": "password",
+          "ariaLabel": "Password"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 415.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "value": "work7867410",
+      "description": "Type \"work7867410\" into INPUT",
+      "rule": {
+        "field_name": "PASSWORDS",
+        "source_type": "file",
+        "file_path": "PASSWORDS.TXT",
+        "mode": "sequential",
+        "description": "Sequential lines from PASSWORDS.TXT"
+      }
+    },
+    {
+      "id": "step_11",
+      "type": "change",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240024334,
+      "delayMs": 513,
+      "target": {
+        "tag": "INPUT",
+        "selectors": {
+          "css": "#uid_13",
+          "xpath": "//*[@id=\"uid_13\"]",
+          "id": "uid_13",
+          "name": "password",
+          "ariaLabel": "Password"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 415.0,
+          "width": 367.0,
+          "height": 39.0
+        }
+      },
+      "value": "work7867410",
+      "description": "Change value to \"work7867410\" on #uid_13"
+    },
+    {
+      "id": "step_12",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240024424,
+      "delayMs": 90,
+      "target": {
+        "tag": "DIV",
+        "text": "Month, Month",
+        "selectors": {
+          "css": "fieldset > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div > div > div > div > div > div > div > div",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form/div/fieldset/div/div[2]/div/div/div/div/div/div/div/div/div/div",
+          "text": "Month, Month"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 503.0,
+          "width": 91.0,
+          "height": 38.0
+        }
+      },
+      "description": "Click \"Month, Month\" (DIV)"
+    },
+    {
+      "id": "step_13",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240026745,
+      "delayMs": 2321,
+      "target": {
+        "tag": "SPAN",
+        "text": "September",
+        "selectors": {
+          "css": "#_r_v_-option-8 > div:nth-of-type(1) > div > span > span",
+          "xpath": "/*[@id=\"_r_v_-option-8\"]/div/div/span/span",
+          "text": "September"
+        },
+        "bounds": {
+          "x": 28.0,
+          "y": 640.0,
+          "width": 76.0,
+          "height": 21.0
+        }
+      },
+      "description": "Click \"September\" (SPAN)"
+    },
+    {
+      "id": "step_14",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240027320,
+      "delayMs": 575,
+      "target": {
+        "tag": "BUTTON",
+        "selectors": {
+          "css": "div:nth-of-type(2) > div > div > div > div > div > div > button",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form/div/fieldset/div/div[2]/div/div[2]/div/div/div/div/div/div/button"
+        },
+        "bounds": {
+          "x": 227.0,
+          "y": 503.0,
+          "width": 36.0,
+          "height": 38.0
+        }
+      },
+      "description": "Click div:nth-of-type(2) > div > div > div > div > div > div > button"
+    },
+    {
+      "id": "step_15",
+      "type": "submit",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240027485,
+      "delayMs": 165,
+      "target": {
+        "tag": "FORM",
+        "text": "Email* Display Name This is how others see you. Yo",
+        "selectors": {
+          "css": "form",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form",
+          "text": "Email* Display Name This is how others s"
+        },
+        "bounds": {
+          "x": 16.0,
+          "y": 122.0,
+          "width": 368.0,
+          "height": 646.0
+        }
+      },
+      "description": "Submit form form"
+    },
+    {
+      "id": "step_16",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240029288,
+      "delayMs": 1803,
+      "target": {
+        "tag": "DIV",
+        "text": "17",
+        "selectors": {
+          "css": "#_r_19_-option-16 > div:nth-of-type(1) > div",
+          "xpath": "/*[@id=\"_r_19_-option-16\"]/div/div",
+          "text": "17"
+        },
+        "bounds": {
+          "x": 166.0,
+          "y": 640.0,
+          "width": 45.0,
+          "height": 20.0
+        }
+      },
+      "description": "Click \"17\" (DIV)"
+    },
+    {
+      "id": "step_17",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240029605,
+      "delayMs": 317,
+      "target": {
+        "tag": "SVG",
+        "selectors": {
+          "css": "div:nth-of-type(3) > div > div > div > div > div > div > button > span > svg",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form/div/fieldset/div/div[2]/div/div[3]/div/div/div/div/div/div/button/span/svg",
+          "role": "img"
+        },
+        "bounds": {
+          "x": 353.0,
+          "y": 512.0,
+          "width": 20.0,
+          "height": 20.0
+        }
+      },
+      "description": "Click div:nth-of-type(3) > div > div > div > div > div > div > button > span > svg"
+    },
+    {
+      "id": "step_18",
+      "type": "submit",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240029772,
+      "delayMs": 167,
+      "target": {
+        "tag": "FORM",
+        "text": "Email* Display Name This is how others see you. Yo",
+        "selectors": {
+          "css": "form",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form",
+          "text": "Email* Display Name This is how others s"
+        },
+        "bounds": {
+          "x": 16.0,
+          "y": 122.0,
+          "width": 368.0,
+          "height": 666.0
+        }
+      },
+      "description": "Submit form form"
+    },
+    {
+      "id": "step_19",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240031508,
+      "delayMs": 1736,
+      "target": {
+        "tag": "DIV",
+        "text": "2010",
+        "selectors": {
+          "css": "#_r_1j_-option-16 > div:nth-of-type(1)",
+          "xpath": "/*[@id=\"_r_1j_-option-16\"]/div",
+          "text": "2010"
+        },
+        "bounds": {
+          "x": 277.0,
+          "y": 642.0,
+          "width": 63.0,
+          "height": 40.0
+        }
+      },
+      "description": "Click \"2010\" (DIV)"
+    },
+    {
+      "id": "step_20",
+      "type": "click",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240032366,
+      "delayMs": 858,
+      "target": {
+        "tag": "DIV",
+        "text": "Create Account",
+        "selectors": {
+          "css": "div.buttonChildrenWrapper_a22cb0",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form/div/div[8]/button/div",
+          "text": "Create Account"
+        },
+        "bounds": {
+          "x": 17.0,
+          "y": 690.0,
+          "width": 367.0,
+          "height": 38.0
+        }
+      },
+      "description": "Click \"Create Account\" (DIV)"
+    },
+    {
+      "id": "step_21",
+      "type": "submit",
+      "url": "https://discord.com/register",
+      "timestamp": 1790240032376,
+      "delayMs": 10,
+      "target": {
+        "tag": "FORM",
+        "text": "Email* Display Name This is how others see you. Yo",
+        "selectors": {
+          "css": "form",
+          "xpath": "/*[@id=\"app-mount\"]/div[2]/div/div/div/div/section/div[2]/form",
+          "text": "Email* Display Name This is how others s"
+        },
+        "bounds": {
+          "x": 16.0,
+          "y": 122.0,
+          "width": 368.0,
+          "height": 646.0
+        }
+      },
+      "description": "Submit form form"
+    }
+  ],
+  "rules": {}
+}

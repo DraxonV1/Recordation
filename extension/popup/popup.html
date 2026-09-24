@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Recordation</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <span class="brand-dot"></span>
+        </div>
+        <div class="brand-text">
+          <h1>Recordation</h1>
+          <span class="brand-tag">Visual Automation</span>
+        </div>
+      </div>
+      <div class="status-chip" id="status-chip">
+        <span class="status-dot" id="status-dot"></span>
+        <span class="status-label" id="status-label">Idle</span>
+      </div>
+    </header>
+
+    <!-- Main Controller Card -->
+    <section class="control-card" id="control-card">
+      <!-- Idle Mode Controls -->
+      <div class="idle-controls" id="idle-controls">
+        <div class="form-group">
+          <label for="flow-title">Flow Title</label>
+          <input type="text" id="flow-title" placeholder="e.g. Login & Checkout Test" autocomplete="off">
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="btn-start">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="8"/>
+            </svg>
+            Start Recording
+          </button>
+          <div class="secondary-row">
+            <button class="btn btn-secondary" id="btn-import-trigger">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Import .rec
+            </button>
+            <input type="file" id="file-import" accept=".rec,.json" style="display:none">
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Recording Mode Controls -->
+      <div class="active-controls" id="active-controls" style="display: none;">
+        <div class="recording-meta">
+          <div class="meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-val" id="recording-timer">00:00</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Steps</span>
+            <span class="meta-val" id="recording-steps-count">0</span>
+          </div>
+        </div>
+
+        <div class="active-button-row">
+          <button class="btn btn-warning" id="btn-pause">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16"/>
+              <rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            <span id="pause-text">Pause</span>
+          </button>
+
+          <button class="btn btn-danger" id="btn-stop">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="5" y="5" width="14" height="14" rx="2"/>
+            </svg>
+            Stop & Save
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recorded Steps Section -->
+    <section class="steps-section">
+      <div class="section-header">
+        <h2>Recorded Steps (<span id="steps-header-count">0</span>)</h2>
+        <div class="section-actions">
+          <button class="icon-text-btn" id="btn-export-rec" title="Download .rec file" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            .rec
+          </button>
+          <button class="icon-text-btn btn-danger-ghost" id="btn-clear" title="Clear all steps" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="3 6 5 6 21 6"/>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <div class="steps-list-container" id="steps-list">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">&#9678;</div>
+          <p class="empty-title">No steps recorded yet</p>
+          <p class="empty-desc">Click "Start Recording" or interact using the on-page floating HUD in your browser.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

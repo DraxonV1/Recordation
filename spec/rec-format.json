@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RecordationRecordingFormat",
+  "description": "Standard .rec file schema for visual web recordings and automations",
+  "type": "object",
+  "required": ["version", "format", "metadata", "steps"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "format": {
+      "type": "string",
+      "const": "recordation.rec"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["title", "createdAt", "startUrl"],
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "userAgent": { "type": "string" },
+        "viewport": {
+          "type": "object",
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" }
+          },
+          "required": ["width", "height"]
+        },
+        "device": { "type": "string" },
+        "startUrl": { "type": "string", "format": "uri" },
+        "durationMs": { "type": "integer" }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "timestamp"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": [
+              "navigate",
+              "click",
+              "dblclick",
+              "input",
+              "change",
+              "select",
+              "keydown",
+              "submit",
+              "scroll",
+              "wait"
+            ]
+          },
+          "url": { "type": "string" },
+          "timestamp": { "type": "integer" },
+          "delayMs": { "type": "integer" },
+          "target": {
+            "type": "object",
+            "properties": {
+              "tag": { "type": "string" },
+              "text": { "type": ["string", "null"] },
+              "selectors": {
+                "type": "object",
+                "properties": {
+                  "testId": { "type": ["string", "null"] },
+                  "id": { "type": ["string", "null"] },
+                  "name": { "type": ["string", "null"] },
+                  "ariaLabel": { "type": ["string", "null"] },
+                  "role": { "type": ["string", "null"] },
+                  "css": { "type": "string" },
+                  "xpath": { "type": "string" },
+                  "text": { "type": ["string", "null"] }
+                },
+                "required": ["css", "xpath"]
+              },
+              "bounds": {
+                "type": "object",
+                "properties": {
+                  "x": { "type": "number" },
+                  "y": { "type": "number" },
+                  "width": { "type": "number" },
+                  "height": { "type": "number" }
+                }
+              }
+            }
+          },
+          "value": { "type": ["string", "number", "boolean", "null"] },
+          "key": { "type": ["string", "null"] },
+          "scroll": {
+            "type": "object",
+            "properties": {
+              "x": { "type": "number" },
+              "y": { "type": "number" }
+            }
+          },
+          "description": { "type": "string" }
+        }
+      }
+    }
+  }
+}
