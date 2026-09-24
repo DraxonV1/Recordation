@@ -26,6 +26,15 @@ Captures user actions across Chromium browsers (mobile and desktop) into standar
   - **Standalone Extension (`export-ext`):** Compiles the recording into a standalone Manifest V3 extension ready for unpackaged loading and replay.
   - **Playwright (`export-playwright`):** Generates standard sync or async Playwright scripts.
 - **Trace Optimizer (`optimize`):** Merges consecutive input sequences, removes rapid duplicate clicks within configurable thresholds, and normalizes delay intervals.
+---
+
+## Interface Preview
+
+<p align="center">
+  <img src="assets/ext_popup.png" width="320" alt="Recordation Extension Popup" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="assets/recorded_steps.png" width="460" alt="Recorded Steps View" />
+</p>
 
 ---
 
