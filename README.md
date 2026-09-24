@@ -31,9 +31,9 @@ Captures user actions across Chromium browsers (mobile and desktop) into standar
 ## Interface Preview
 
 <p align="center">
-  <img src="assets/ext_popup.png" width="320" alt="Recordation Extension Popup" />
+  <img src="assets/ext_popup.png" width="440" alt="Recordation Extension Popup" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="assets/recorded_steps.png" width="460" alt="Recorded Steps View" />
+  <img src="assets/recorded_steps.png" width="440" alt="Recorded Steps View" />
 </p>
 
 ---
