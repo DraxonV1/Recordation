@@ -127,7 +127,7 @@ def export_py_cmd(rec_file: str, output: str, headless: bool, chrome_path: str, 
     )
     out_path = Path(output)
     out_path.write_text(code, encoding="utf-8")
-    console.print(f"[bold green]✓ Successfully exported TrueDriver automation script to:[/bold green] [cyan]{out_path.resolve()}[/cyan]")
+    console.print(f"[bold green][OK] Successfully exported TrueDriver automation script to:[/bold green] [cyan]{out_path.resolve()}[/cyan]")
     console.print(f"[dim]Run with:[/dim] [bold yellow]python {output}[/bold yellow]")
 
 
@@ -135,11 +135,11 @@ def export_py_cmd(rec_file: str, output: str, headless: bool, chrome_path: str, 
 @click.argument("rec_file", type=click.Path(exists=True, dir_okay=False))
 @click.option("-o", "--output-dir", default="./automation_extension", help="Output extension folder")
 def export_ext_cmd(rec_file: str, output_dir: str):
-    """Export flow into a standalone Chrome Extension for Lemur/Kiwi and Desktop Chrome."""
+    """Export flow into a standalone Chrome Extension for replay."""
     rec = Recording.load(rec_file)
     out_path = ExtensionExporter.export(recording=rec, output_dir=output_dir)
-    console.print(f"[bold green]✓ Successfully exported standalone Chrome Extension to:[/bold green] [cyan]{out_path.resolve()}[/cyan]")
-    console.print("[dim]Load in Kiwi/Lemur Android: Extensions -> Load Unpacked -> select folder.[/dim]")
+    console.print(f"[bold green][OK] Successfully exported standalone Chrome Extension to:[/bold green] [cyan]{out_path.resolve()}[/cyan]")
+    console.print("[dim]Load via Extensions -> Load unpacked -> select folder.[/dim]")
 
 
 @cli.command("export-playwright")
@@ -152,7 +152,7 @@ def export_playwright_cmd(rec_file: str, output: str, async_mode: bool, headless
     rec = Recording.load(rec_file)
     code = PlaywrightExporter.export(recording=rec, is_async=async_mode, headless=headless)
     Path(output).write_text(code, encoding="utf-8")
-    console.print(f"[bold green]✓ Exported Playwright automation to:[/bold green] [cyan]{output}[/cyan]")
+    console.print(f"[bold green][OK] Exported Playwright automation to:[/bold green] [cyan]{output}[/cyan]")
 
 
 @cli.command("optimize")
@@ -167,7 +167,7 @@ def optimize_cmd(rec_file: str, output: Optional[str], max_delay: int):
 
     save_path = output or rec_file
     optimized.save(save_path)
-    console.print(f"[bold green]✓ Optimized recording:[/bold green] {orig_count} steps -> {len(optimized.steps)} steps saved to [cyan]{save_path}[/cyan]")
+    console.print(f"[bold green][OK] Optimized recording:[/bold green] {orig_count} steps -> {len(optimized.steps)} steps saved to [cyan]{save_path}[/cyan]")
 
 
 if __name__ == "__main__":

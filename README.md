@@ -1,93 +1,85 @@
-# Recordation 🎬
+# Recordation
 
 [![Author](https://img.shields.io/badge/Author-DraxonV1-8a2be2)](https://github.com/DraxonV1)
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://python.org)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-brightgreen)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **A browser extension that records your actions to export them to executable browser automation (Python / Extension)**. Created by **DraxonV1**.
+A browser extension that records user interactions and exports them to executable browser automation (Python / Chrome Extension). Created by **DraxonV1**.
 
-Record exact user interactions on any Chromium browser (mobile or desktop) into standardized `.rec` files, then export them directly into **TrueDriver Python scripts** (with automatic system Chrome detection) or **standalone Chrome extensions** that replay the automation anywhere.
-
----
-
-## ✨ Features
-
-- **🕹️ In-Page Floating HUD:** Draggable on-screen widget with step counter, pulse recording indicator, pause/resume, and one-tap `.rec` download.
-- **🎯 Multi-Strategy Selector Engine:** Captures stable element selectors:
-  - Semantic form attributes (`name="email"`, `name="password"`)
-  - Accessibility labels (`aria-label`)
-  - Testing attributes (`data-testid`, `data-cy`)
-  - Button/link text content
-  - Unique hierarchical CSS paths and XPaths
-- **⚡ Multiple Export Targets:**
-  - **TrueDriver (`export-py`):** Undetectable CDP automation with automatic system Google Chrome binary discovery (`find_system_chrome()`).
-  - **Standalone Extension (`export-ext`):** Unpacked Chrome Extension you can load into any browser to replay the automation.
-  - **Playwright (`export-playwright`):** Production-ready Playwright sync or async scripts.
-- **🧹 Noise Optimizer (`optimize`):** Merges rapid typing steps, cleans accidental double-clicks, and standardizes pauses.
+Captures user actions across Chromium browsers (mobile and desktop) into standardized `.rec` files, then compiles them into **TrueDriver Python scripts** (with automatic system Chrome binary discovery) or **standalone Chrome extensions** for direct replay.
 
 ---
 
-## 🏗️ Architecture
+## Features
+
+- **In-Page Floating HUD:** Draggable overlay with step counter, recording state, pause/resume, and direct `.rec` export.
+- **Multi-Strategy Selector Engine:** Generates resilient selector cascades per element:
+  - Form attributes (`name`, `type`, `placeholder`)
+  - Accessibility attributes (`aria-label`, `role`)
+  - Test identifiers (`data-testid`, `data-cy`, `data-qa`)
+  - Normalized text content for buttons, links, and dropdown options
+  - Hierarchical CSS selectors and XPath expressions
+- **Dynamic ID Filtering:** Automatically rejects transient framework identifiers (e.g. React `useId`, `uid_*`, `_r_*`).
+- **Target Exporters:**
+  - **TrueDriver (`export-py`):** Generates async Python scripts using TrueDriver with automated system Chrome binary resolution (`find_system_chrome()`).
+  - **Standalone Extension (`export-ext`):** Compiles the recording into a standalone Manifest V3 extension ready for unpackaged loading and replay.
+  - **Playwright (`export-playwright`):** Generates standard sync or async Playwright scripts.
+- **Trace Optimizer (`optimize`):** Merges consecutive input sequences, removes rapid duplicate clicks within configurable thresholds, and normalizes delay intervals.
+
+---
+
+## Architecture
 
 ```
 recordation/
 ├── extension/                  # Chrome Extension (Manifest V3)
-│   ├── manifest.json           # MV3 extension manifest
-│   ├── background.js           # State broker & tab navigation listener
+│   ├── manifest.json           # Extension manifest
+│   ├── background.js           # Service worker & navigation listener
 │   ├── content/
-│   │   ├── selector-generator.js # Multi-strategy selector builder
-│   │   ├── floating-hud.js     # Draggable on-screen HUD widget
-│   │   └── recorder.js         # Event capturer (click, input, select, keydown, submit)
-│   ├── popup/                  # Popup controller & step viewer
-│   └── icons/                  # High-DPI extension icons
+│   │   ├── selector-generator.js # Selector generation engine
+│   │   ├── floating-hud.js     # Draggable HUD component
+│   │   └── recorder.js         # Capture-phase event dispatcher
+│   ├── popup/                  # Extension management interface
+│   └── icons/                  # Application icons
 ├── python/
 │   └── recordation/
-│       ├── models.py           # Pydantic models for .rec format
-│       ├── optimizer.py        # Deduplication & debounce heuristics
-│       ├── cli.py              # Click + Rich CLI commands
+│       ├── models.py           # Pydantic schemas for .rec specification
+│       ├── optimizer.py        # Trace deduplication and normalization heuristics
+│       ├── cli.py              # CLI entry points
 │       └── exporters/
-│           ├── truedriver_exporter.py # TrueDriver + System Chrome generator
-│           ├── extension_exporter.py  # Standalone replay extension generator
-│           └── playwright_exporter.py # Playwright sync/async generator
-├── examples/                   # Sample recorded flows
-├── pyproject.toml              # Packaging & CLI entry point
-└── recordation-extension.zip   # Ready-to-install extension zip
+│           ├── truedriver_exporter.py # TrueDriver compiler
+│           ├── extension_exporter.py  # Standalone extension compiler
+│           └── playwright_exporter.py # Playwright compiler
+├── examples/                   # Reference recording traces
+├── pyproject.toml              # Build specification & dependencies
+└── recordation-extension.zip   # Packaged extension archive
 ```
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
-### 1. Install Extension
+### 1. Extension Installation
 
-1. Download [`recordation-extension.zip`](recordation-extension.zip) (or clone this repository).
-2. Open your Chromium browser's **Extensions** manager (`chrome://extensions`).
-3. Enable **Developer Mode**.
-4. Click **Load unpacked** (or select the ZIP in extension-supported mobile browsers) and choose the `extension/` directory.
-5. **Recordation** is now ready in your browser toolbar!
+1. Download `recordation-extension.zip` or clone the repository.
+2. Navigate to `chrome://extensions` in any Chromium browser.
+3. Enable **Developer mode**.
+4. Select **Load unpacked** and choose the `extension/` directory (or supply the ZIP package on supported mobile browsers).
 
-### 2. Record an Automation Flow
+### 2. Recording User Interactions
 
-1. Navigate to the website you want to automate.
-2. Click the **Recordation** extension icon.
-3. Click **Start Recording**:
-   - The popup closes and returns focus to your active tab.
-   - A floating **HUD widget** appears on screen showing recording status and live step count.
-   - Drag the HUD anywhere on screen so it doesn't obstruct elements.
-4. Perform your exact actions:
-   - Click buttons, tabs, links.
-   - Type in text fields (passwords, usernames, search queries).
-   - Select dropdown items or toggle checkboxes.
-   - Navigate across pages or single-page application routes.
-5. When finished, tap **Save .rec** on the floating HUD (or tap **Stop & Save** in the popup).
-6. The `.rec` file will download to your device immediately.
+1. Navigate to the target web application.
+2. Open the Recordation extension popup and click **Start Recording**.
+3. The popup closes, and the on-screen HUD appears.
+4. Execute interactions (clicks, keyboard input, selections, navigations).
+5. Click **Save .rec** on the HUD or **Stop & Save** in the popup to download the recording file.
 
 ---
 
-## 💻 Python CLI Tool
+## CLI Reference
 
-Install the companion CLI locally:
+### Installation
 
 ```bash
 git clone https://github.com/DraxonV1/Recordation.git
@@ -100,51 +92,52 @@ Verify installation:
 recordation --version
 ```
 
-### Inspect Recording
+### Commands
+
+#### Inspect Recording Metadata
 ```bash
-recordation info my_flow.rec
+recordation info flow.rec
 ```
 
-### List Recorded Steps with Selectors
+#### Enumerate Recorded Steps
 ```bash
-recordation list my_flow.rec
+recordation list flow.rec
 ```
 
-### Export to TrueDriver (System Chrome)
-Generates an undetectable automation script using `truedriver` that detects installed system Chrome across Windows, Linux, and macOS:
+#### Compile to TrueDriver (System Chrome)
+Generates an automation script that resolves the local Chrome executable:
 ```bash
-recordation export-py my_flow.rec -o automation.py
+recordation export-py flow.rec -o automation.py
 
-# Run the generated automation:
+# Execute automation
 python automation.py
 ```
 
-### Export to Standalone Replay Extension
-Generates an unpacked Chrome Extension ready to load into any Chromium browser:
+#### Compile to Standalone Extension
+Generates an unpacked Chrome Extension directory configured to replay the recorded flow:
 ```bash
-recordation export-ext my_flow.rec -o ./my_runner_extension
+recordation export-ext flow.rec -o ./runner_extension
 ```
 
-To run the exported extension:
-1. Load `./my_runner_extension` via **Extensions** -> **Load Unpacked**.
-2. Open the target website, click the runner extension, and click **Run Automation**.
+To execute:
+1. Load `./runner_extension` via **Extensions** -> **Load unpacked**.
+2. Open the target domain and click **Run Automation** in the runner popup.
 
-### Export to Playwright
+#### Compile to Playwright
 ```bash
-recordation export-playwright my_flow.rec -o playwright_script.py
+recordation export-playwright flow.rec -o playwright_script.py
 ```
 
-### Optimize Recording
-Cleans up redundant double-clicks, debounces rapid typing inputs, and clamps excessive idle pauses:
+#### Optimize Recording Trace
 ```bash
-recordation optimize my_flow.rec -o optimized.rec
+recordation optimize flow.rec -o optimized.rec
 ```
 
 ---
 
-## 📄 .rec File Specification
+## Format Specification (.rec)
 
-Recordation files (`.rec`) use a portable JSON format:
+Recordation traces follow a strict JSON schema:
 
 ```json
 {
@@ -186,7 +179,9 @@ Recordation files (`.rec`) use a portable JSON format:
 
 ---
 
-## 🧪 Running Tests
+## Testing
+
+Execute the test suite using pytest:
 
 ```bash
 pytest python/tests/test_recordation.py -v
@@ -194,12 +189,12 @@ pytest python/tests/test_recordation.py -v
 
 ---
 
-## 👤 Author
+## Author
 
 Created by **[DraxonV1](https://github.com/DraxonV1)**.
 
 ---
 
-## 📜 License
+## License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
