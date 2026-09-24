@@ -3,7 +3,7 @@
   "name": "Recordation - Visual Automation Builder",
   "version": "1.0.0",
   "description": "Visual web recording & automation generator for Kiwi, Lemur, and Desktop Chromium.",
-  "author": "Recordation",
+  "author": "DraxonV1",
   "action": {
     "default_popup": "popup/popup.html",
     "default_title": "Recordation - Automation Recorder",

@@ -1,11 +1,12 @@
 # Recordation 🎬
 
+[![Author](https://img.shields.io/badge/Author-DraxonV1-8a2be2)](https://github.com/DraxonV1)
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://python.org)
 [![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-brightgreen)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Mobile Support](https://img.shields.io/badge/Android-Kiwi%20%7C%20Lemur-orange)](https://github.com)
+[![Mobile Support](https://img.shields.io/badge/Android-Kiwi%20%7C%20Lemur-orange)](https://github.com/DraxonV1/recordation)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Visual Browser Automation Builder** for **Kiwi Browser** and **Lemur Browser** on Android, as well as desktop Chromium browsers.
+> **Visual Browser Automation Builder** created by **DraxonV1** for **Kiwi Browser** and **Lemur Browser** on Android, as well as desktop Chromium browsers.
 
 Record exact user interactions on your mobile or desktop browser into standardized `.rec` files, then export them directly into **TrueDriver Python scripts** (with automatic system Chrome detection) or **standalone Chrome extensions** that replay the automation anywhere.
 
@@ -13,7 +14,7 @@ Record exact user interactions on your mobile or desktop browser into standardiz
 
 ## ✨ Features
 
-- **📱 Touchscreen & Mobile Ready:** Designed for Android mobile browsers (Kiwi and Lemur).
+- **📱 Touchscreen & Mobile Ready:** Designed specifically for Android mobile browsers (Kiwi and Lemur).
 - **🕹️ In-Page Floating HUD:** Draggable on-screen widget with step counter, pulse recording indicator, pause/resume, and instant `.rec` download.
 - **🎯 Multi-Strategy Selector Engine:** Captures stable element selectors:
   - Semantic form attributes (`name="email"`, `name="password"`)
@@ -92,7 +93,7 @@ recordation/
 Install the companion CLI locally:
 
 ```bash
-git clone https://github.com/your-username/recordation.git
+git clone https://github.com/DraxonV1/recordation.git
 cd recordation
 pip install -e .
 ```
@@ -197,15 +198,9 @@ pytest python/tests/test_recordation.py -v
 
 ---
 
-## 🤝 Contributing
+## 👤 Author
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Created by **[DraxonV1](https://github.com/DraxonV1)**.
 
 ---
 
