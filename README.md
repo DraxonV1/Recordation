@@ -90,8 +90,8 @@ recordation/
 Install the companion CLI locally:
 
 ```bash
-git clone https://github.com/DraxonV1/recordation.git
-cd recordation
+git clone https://github.com/DraxonV1/Recordation.git
+cd Recordation
 pip install -e .
 ```
 

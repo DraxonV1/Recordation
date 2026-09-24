@@ -8,6 +8,10 @@ description = "A browser extension that records your actions to export them to e
 authors = [{ name = "DraxonV1" }]
 readme = "README.md"
 license = "MIT"
+[project.urls]
+Homepage = "https://github.com/DraxonV1/Recordation"
+Repository = "https://github.com/DraxonV1/Recordation"
+Issues = "https://github.com/DraxonV1/Recordation/issues"
 keywords = ["automation", "browser", "recorder", "truedriver", "playwright", "chrome-extension"]
 classifiers = [
     "Programming Language :: Python :: 3",
