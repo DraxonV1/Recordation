@@ -4,14 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "recordation"
+version = "1.0.1"
 description = "A browser extension that records your actions to export them to executable browser automation (Python / Extension)"
-authors = [{ name = "DraxonV1" }]
 readme = "README.md"
-license = "MIT"
-[project.urls]
-Homepage = "https://github.com/DraxonV1/Recordation"
-Repository = "https://github.com/DraxonV1/Recordation"
-Issues = "https://github.com/DraxonV1/Recordation/issues"
+authors = [{ name = "DraxonV1" }]
+license = { text = "MIT" }
+requires-python = ">=3.9"
 keywords = ["automation", "browser", "recorder", "truedriver", "playwright", "chrome-extension"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -29,6 +27,11 @@ dependencies = [
     "rich>=13.0.0",
     "truedriver>=0.1.0"
 ]
+
+[project.urls]
+Homepage = "https://github.com/DraxonV1/Recordation"
+Repository = "https://github.com/DraxonV1/Recordation"
+Issues = "https://github.com/DraxonV1/Recordation/issues"
 
 [project.optional-dependencies]
 playwright = ["playwright>=1.40.0"]
